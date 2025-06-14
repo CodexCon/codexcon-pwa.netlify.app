@@ -12,10 +12,12 @@
   <iframe src="https://codexcon.net" style="width:100vw;height:100vh;border:none;"></iframe>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registered'));
-    }
-  </script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('✅ Service Worker registered'))
+      .catch(error => console.log('❌ Service Worker registration failed', error));
+  }
+</script>
+
 </body>
 </html>
