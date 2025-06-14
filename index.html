@@ -9,15 +9,60 @@
   <link rel="icon" href="icon-192.png" type="image/png">
 </head>
 <body style="margin:0;padding:0;overflow:hidden;height:100vh;background:#000;">
+  <!-- Embedded Carrd Site -->
   <iframe src="https://codexcon.net" style="width:100vw;height:100vh;border:none;"></iframe>
 
+  <!-- ✅ Service Worker Registration -->
   <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('✅ Service Worker registered'))
-      .catch(error => console.log('❌ Service Worker registration failed', error));
-  }
-</script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker registered'))
+        .catch(error => console.log('❌ Service Worker registration failed', error));
+    }
+  </script>
+
+  <!-- ✅ Custom Install Prompt -->
+  <script>
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+
+      const installPrompt = document.createElement('button');
+      installPrompt.innerText = '📲 Install CodexCon';
+      installPrompt.style = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px;
+        background: #f6b250;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        z-index: 9999;
+        cursor: pointer;
+      `;
+      document.body.appendChild(installPrompt);
+
+      installPrompt.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('✅ User accepted the install');
+          } else {
+            console.log('❌ User dismissed the install');
+          }
+          deferredPrompt = null;
+          installPrompt.remove();
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
