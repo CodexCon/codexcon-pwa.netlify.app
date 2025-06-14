@@ -1,3 +1,4 @@
+// ✅ service-worker.js (in GitHub)
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open("codexcon-cache").then(cache => {
