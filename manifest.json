@@ -4,8 +4,8 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f7694d",
-  "description": "CodexCon - Affordable Web & Creative Services for Growth.",
+  "theme_color": "#f2af50",
+  "description": "CodexCon - Affordable Solutions for Big Ambitions.",
   "icons": [
     {
       "src": "https://pwa.codexcon.net/logo.png",
