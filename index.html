@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CodexCon PWA</title>
-  <link rel="manifest" href="/manifest.json" />
+  <meta charset="UTF-8">
+  <title>CodexCon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png" type="image/png">
 </head>
-<body>
-  <h1>Welcome to CodexCon PWA!</h1>
-  <p>Your progressive web app is ready to install.</p>
+<body style="margin:0;padding:0;overflow:hidden;height:100vh;background:#000;">
+  <iframe src="https://codexcon.net" style="width:100vw;height:100vh;border:none;"></iframe>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registered'));
+    }
+  </script>
 </body>
 </html>
