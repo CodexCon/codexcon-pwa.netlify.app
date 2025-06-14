@@ -8,7 +8,7 @@
   "description": "CodexCon - Affordable Web & Creative Services for Growth.",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "https://pwa.codexcon.net/logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
