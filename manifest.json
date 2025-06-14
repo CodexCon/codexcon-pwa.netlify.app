@@ -1,0 +1,16 @@
+{
+  "name": "CodexCon",
+  "short_name": "CodexCon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f7694d",
+  "description": "CodexCon - Affordable Web & Creative Services for Growth.",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
